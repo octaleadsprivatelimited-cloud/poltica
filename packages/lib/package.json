@@ -1,0 +1,25 @@
+{
+  "name": "@sarpanch-campaign/lib",
+  "version": "1.0.0",
+  "description": "Shared utilities and providers for sarpanch-campaign",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.38.0",
+    "zod": "^3.22.4",
+    "posthog-js": "^1.86.0",
+    "shortid": "^2.2.16",
+    "crypto": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/shortid": "^2.0.0",
+    "typescript": "^5.2.2"
+  }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .search-container { margin-bottom: 20px; }
+        .search-input { width: 300px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .subscriber-card { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; background: #f9f9f9; }
+        .subscriber-id { color: blue; font-weight: bold; }
+        .highlight { background-color: yellow; }
+        .no-results { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>Search Functionality Test</h1>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search by name, ID, phone, email, location...">
+        <button onclick="clearSearch()">Clear</button>
+    </div>
+    
+    <div id="searchResults"></div>
+    
+    <script>
+        const subscribers = [
+            {
+                id: 'AP255454',
+                name: 'bheemesh',
+                email: 'sri@gmail.com',
+                phone: '9000045454',
+                location: '3-210',
+                village: 'Jaggannapeta',
+                district: 'East Godavari',
+                state: 'Andhra Pradesh',
+                whatsappNumber: '9000045454',
+                campaignFocus: 'Test Campaign'
+            },
+            {
+                id: 'MH241234',
+                name: 'Test User',
+                email: 'test@example.com',
+                phone: '9876543210',
+                location: 'Mumbai',
+                village: 'Mumbai City',
+                district: 'Mumbai',
+                state: 'Maharashtra',
+                whatsappNumber: '9876543210',
+                campaignFocus: 'Election Campaign'
+            }
+        ];
+        
+        function highlightText(text, searchTerm) {
+            if (!searchTerm || !text) return text;
+            const regex = new RegExp(`(${searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            return text.replace(regex, '<span class="highlight">$1</span>');
+        }
+        
+        function filterSubscribers(searchTerm) {
+            if (!searchTerm.trim()) {
+                return subscribers;
+            }
+            
+            const searchLower = searchTerm.toLowerCase().trim();
+            return subscribers.filter(sub => {
+                const nameMatch = sub.name.toLowerCase().includes(searchLower);
+                const emailMatch = sub.email.toLowerCase().includes(searchLower);
+                const phoneMatch = sub.phone.includes(searchTerm);
+                const locationMatch = sub.location.toLowerCase().includes(searchLower);
+                const subscriberIdMatch = sub.id.toLowerCase().includes(searchLower);
+                const villageMatch = sub.village?.toLowerCase().includes(searchLower) || false;
+                const districtMatch = sub.district?.toLowerCase().includes(searchLower) || false;
+                const stateMatch = sub.state?.toLowerCase().includes(searchLower) || false;
+                const whatsappMatch = sub.whatsappNumber?.includes(searchTerm) || false;
+                const campaignMatch = sub.campaignFocus?.toLowerCase().includes(searchLower) || false;
+                
+                return nameMatch || emailMatch || phoneMatch || locationMatch || 
+                       subscriberIdMatch || villageMatch || districtMatch || 
+                       stateMatch || whatsappMatch || campaignMatch;
+            });
+        }
+        
+        function renderSubscribers(searchTerm = '') {
+            const filtered = filterSubscribers(searchTerm);
+            const container = document.getElementById('searchResults');
+            
+            if (filtered.length === 0 && searchTerm) {
+                container.innerHTML = '<div class="no-results">No subscribers found matching "' + searchTerm + '"</div>';
+                return;
+            }
+            
+            container.innerHTML = filtered.map(sub => `
+                <div class="subscriber-card">
+                    <div class="subscriber-id">${highlightText(sub.id, searchTerm)}</div>
+                    <h3>${highlightText(sub.name, searchTerm)}</h3>
+                    <p><strong>Email:</strong> ${highlightText(sub.email, searchTerm)}</p>
+                    <p><strong>Phone:</strong> ${highlightText(sub.phone, searchTerm)}</p>
+                    <p><strong>Location:</strong> ${highlightText(sub.location, searchTerm)}</p>
+                    <p><strong>Village:</strong> ${highlightText(sub.village, searchTerm)}</p>
+                    <p><strong>District:</strong> ${highlightText(sub.district, searchTerm)}</p>
+                    <p><strong>State:</strong> ${highlightText(sub.state, searchTerm)}</p>
+                    <p><strong>WhatsApp:</strong> ${highlightText(sub.whatsappNumber, searchTerm)}</p>
+                    <p><strong>Campaign:</strong> ${highlightText(sub.campaignFocus, searchTerm)}</p>
+                </div>
+            `).join('');
+        }
+        
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            renderSubscribers();
+        }
+        
+        // Initialize
+        renderSubscribers();
+        
+        // Add event listener
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            renderSubscribers(e.target.value);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+
+> @sarpanch-campaign/lib@1.0.0 build /Users/sri/Desktop/chess/packages/lib
+> tsc
+
+src/providers/index.ts(7,57): error TS2304: Cannot find name 'ProviderConfig'.
+src/providers/index.ts(11,52): error TS2304: Cannot find name 'ProviderConfig'.
+src/providers/index.ts(15,52): error TS2304: Cannot find name 'ProviderConfig'.
+ ELIFECYCLE  Command failed with exit code 2.
