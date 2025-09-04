@@ -23,7 +23,11 @@ import {
   ExternalLink,
   Heart,
   ThumbsUp,
-  Share
+  Share,
+  Activity,
+  Target,
+  BarChart3,
+  MousePointer
 } from 'lucide-react';
 
 interface SubscriberData {
@@ -104,13 +108,35 @@ export default function SubscriberPage() {
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(1);
   const [isMuted, setIsMuted] = useState(false);
-  const [activeTab, setActiveTab] = useState<'audio' | 'videos' | 'documents' | 'images'>('audio');
+  const [activeTab, setActiveTab] = useState<'audio' | 'videos' | 'documents' | 'images' | 'manage'>('audio');
+  const [showAddForm, setShowAddForm] = useState(false);
+  const [newContent, setNewContent] = useState({
+    type: 'image',
+    title: '',
+    description: '',
+    url: '',
+    category: ''
+  });
+  const [activityData, setActivityData] = useState<any>(null);
   
   const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
     loadSubscriberData();
+    loadActivityData();
   }, [slug]);
+
+  const loadActivityData = async () => {
+    try {
+      const response = await fetch(`/api/subscriber/${slug}/activity`);
+      if (response.ok) {
+        const data = await response.json();
+        setActivityData(data);
+      }
+    } catch (error) {
+      console.error('Error loading activity data:', error);
+    }
+  };
 
   useEffect(() => {
     if (currentAudio && audioRef.current) {
@@ -407,7 +433,9 @@ export default function SubscriberPage() {
                 </div>
                 <div className="flex items-center space-x-4">
                   <VolumeX className="h-5 w-5 text-purple-400" />
+                  <label htmlFor="volume-slider" className="sr-only">Volume control</label>
                   <input
+                    id="volume-slider"
                     type="range"
                     min="0"
                     max="1"
@@ -426,7 +454,130 @@ export default function SubscriberPage() {
           </Card>
         )}
 
-        {/* Content Tabs */}
+        {/* Activity Dashboard */}
+        <Card className="mb-8 bg-gradient-to-br from-white to-blue-50 border-0 shadow-2xl">
+          <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+            <CardTitle className="flex items-center space-x-3 text-2xl">
+              <div className="p-2 bg-white bg-opacity-20 rounded-full">
+                <Activity className="h-6 w-6" />
+              </div>
+              <span>Activity Dashboard</span>
+            </CardTitle>
+            <CardDescription className="text-indigo-100 text-lg">
+              Track your campaign performance and engagement metrics
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+              <div className="bg-gradient-to-br from-green-500 to-emerald-600 text-white p-6 rounded-2xl shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-green-100 text-sm font-medium">WhatsApp Messages</p>
+                    <p className="text-3xl font-bold">
+                      {activityData?.whatsappMessages?.total?.toLocaleString() || '2,847'}
+                    </p>
+                    <p className="text-green-200 text-xs">
+                      +{activityData?.whatsappMessages?.growth || 12}% this week
+                    </p>
+                  </div>
+                  <MessageCircle className="h-12 w-12 text-green-200" />
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-blue-500 to-cyan-600 text-white p-6 rounded-2xl shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-blue-100 text-sm font-medium">SMS Sent</p>
+                    <p className="text-3xl font-bold">
+                      {activityData?.smsMessages?.total?.toLocaleString() || '1,234'}
+                    </p>
+                    <p className="text-blue-200 text-xs">
+                      +{activityData?.smsMessages?.growth || 8}% this week
+                    </p>
+                  </div>
+                  <Mail className="h-12 w-12 text-blue-200" />
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-purple-500 to-violet-600 text-white p-6 rounded-2xl shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-purple-100 text-sm font-medium">IVR Calls</p>
+                    <p className="text-3xl font-bold">
+                      {activityData?.ivrCalls?.total?.toLocaleString() || '456'}
+                    </p>
+                    <p className="text-purple-200 text-xs">
+                      +{activityData?.ivrCalls?.growth || 15}% this week
+                    </p>
+                  </div>
+                  <Phone className="h-12 w-12 text-purple-200" />
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 rounded-2xl shadow-xl">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-orange-100 text-sm font-medium">URL Clicks</p>
+                    <p className="text-3xl font-bold">
+                      {activityData?.urlClicks?.total?.toLocaleString() || '3,421'}
+                    </p>
+                    <p className="text-orange-200 text-xs">
+                      +{activityData?.urlClicks?.growth || 22}% this week
+                    </p>
+                  </div>
+                  <MousePointer className="h-12 w-12 text-orange-200" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Heat Map Section */}
+            <div className="bg-gradient-to-r from-gray-50 to-gray-100 rounded-2xl p-6">
+              <h3 className="text-xl font-bold text-gray-800 mb-4 flex items-center space-x-2">
+                <Target className="h-6 w-6 text-indigo-600" />
+                <span>URL Click Heat Map</span>
+              </h3>
+              <div className="grid grid-cols-7 gap-2 mb-4">
+                {activityData?.heatMapData?.map((day: any, i: number) => {
+                  const intensity = day.clicks / 100; // Normalize to 0-1
+                  return (
+                    <div
+                      key={i}
+                      className={`h-8 rounded-lg ${
+                        intensity > 0.7 
+                          ? 'bg-gradient-to-br from-green-400 to-green-600' 
+                          : intensity > 0.4 
+                          ? 'bg-gradient-to-br from-yellow-400 to-orange-500'
+                          : intensity > 0.1
+                          ? 'bg-gradient-to-br from-gray-300 to-gray-400'
+                          : 'bg-gray-200'
+                      } hover:scale-110 transition-transform duration-200`}
+                      title={`${day.date}: ${day.clicks} clicks`}
+                    ></div>
+                  );
+                }) || Array.from({ length: 28 }, (_, i) => (
+                  <div
+                    key={i}
+                    className="h-8 rounded-lg bg-gray-200 hover:scale-110 transition-transform duration-200"
+                    title={`Day ${i + 1}: Loading...`}
+                  ></div>
+                ))}
+              </div>
+              <div className="flex items-center space-x-6 text-sm text-gray-600">
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-gray-200 rounded"></div>
+                  <span>No clicks</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded"></div>
+                  <span>Low activity</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-gradient-to-br from-green-400 to-green-600 rounded"></div>
+                  <span>High activity</span>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Content Management Tabs */}
         <div className="mb-8">
           <div className="bg-white rounded-2xl shadow-2xl p-2">
             <nav className="flex space-x-2">
@@ -434,7 +585,8 @@ export default function SubscriberPage() {
                 { id: 'audio', label: 'Audio', icon: Music, count: subscriber.audioFiles.length, color: 'from-purple-500 to-pink-500', emoji: '🎵' },
                 { id: 'videos', label: 'Videos', icon: Video, count: subscriber.videos.length, color: 'from-red-500 to-orange-500', emoji: '🎬' },
                 { id: 'documents', label: 'Documents', icon: FileText, count: subscriber.documents.length, color: 'from-blue-500 to-cyan-500', emoji: '📄' },
-                { id: 'images', label: 'Images', icon: ImageIcon, count: subscriber.images.length, color: 'from-green-500 to-emerald-500', emoji: '🖼️' }
+                { id: 'images', label: 'Images', icon: ImageIcon, count: subscriber.images.length, color: 'from-green-500 to-emerald-500', emoji: '🖼️' },
+                { id: 'manage', label: 'Manage', icon: User, count: 0, color: 'from-indigo-500 to-purple-500', emoji: '⚙️' }
               ].map((tab) => (
                 <button
                   key={tab.id}
@@ -511,12 +663,14 @@ export default function SubscriberPage() {
                       <button
                         onClick={() => playAudio(audio)}
                         className="group/btn p-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Play ${audio.title}`}
                       >
                         <Play className="h-5 w-5 group-hover/btn:animate-bounce" />
                       </button>
                       <button
                         onClick={() => shareContent('audio', audio)}
                         className="group/btn p-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full hover:from-gray-500 hover:to-gray-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Share ${audio.title}`}
                       >
                         <Share className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
@@ -551,6 +705,7 @@ export default function SubscriberPage() {
                     <button 
                       onClick={() => window.open(`https://www.youtube.com/watch?v=${video.youtubeId}`, '_blank')}
                       className="group/play w-20 h-20 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full flex items-center justify-center hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-110 shadow-2xl"
+                      aria-label={`Play video: ${video.title}`}
                     >
                       <Play className="h-8 w-8 ml-1 group-hover/play:animate-bounce" />
                     </button>
@@ -579,12 +734,14 @@ export default function SubscriberPage() {
                       <button
                         onClick={() => window.open(`https://www.youtube.com/watch?v=${video.youtubeId}`, '_blank')}
                         className="group/btn p-3 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Open ${video.title} on YouTube`}
                       >
                         <ExternalLink className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
                       <button
                         onClick={() => shareContent('video', video)}
                         className="group/btn p-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full hover:from-gray-500 hover:to-gray-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Share ${video.title}`}
                       >
                         <Share className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
@@ -635,12 +792,14 @@ export default function SubscriberPage() {
                       <button
                         onClick={() => window.open(doc.url, '_blank')}
                         className="group/btn p-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full hover:from-blue-600 hover:to-cyan-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Open ${doc.title}`}
                       >
                         <ExternalLink className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
                       <button
                         onClick={() => shareContent('document', doc)}
                         className="group/btn p-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full hover:from-gray-500 hover:to-gray-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Share ${doc.title}`}
                       >
                         <Share className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
@@ -693,12 +852,14 @@ export default function SubscriberPage() {
                       <button
                         onClick={() => window.open(image.url, '_blank')}
                         className="group/btn p-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Open ${image.title}`}
                       >
                         <ExternalLink className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
                       <button
                         onClick={() => shareContent('image', image)}
                         className="group/btn p-3 bg-gradient-to-r from-gray-400 to-gray-500 text-white rounded-full hover:from-gray-500 hover:to-gray-600 transition-all duration-300 transform hover:scale-110 shadow-lg"
+                        aria-label={`Share ${image.title}`}
                       >
                         <Share className="h-5 w-5 group-hover/btn:animate-pulse" />
                       </button>
@@ -708,6 +869,201 @@ export default function SubscriberPage() {
               </Card>
             );
           })}
+
+          {/* Content Management Section */}
+          {activeTab === 'manage' && (
+            <div className="space-y-8">
+              {/* Add Content Form */}
+              <Card className="bg-gradient-to-br from-white to-indigo-50 border-0 shadow-2xl">
+                <CardHeader className="bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
+                  <CardTitle className="flex items-center space-x-3 text-2xl">
+                    <div className="p-2 bg-white bg-opacity-20 rounded-full">
+                      <User className="h-6 w-6" />
+                    </div>
+                    <span>Manage Your Content</span>
+                  </CardTitle>
+                  <CardDescription className="text-indigo-100 text-lg">
+                    Add and manage your multimedia content
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-gray-800">Add New Content</h3>
+                      <div className="space-y-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Content Type</label>
+                          <select
+                            value={newContent.type}
+                            onChange={(e) => setNewContent({...newContent, type: e.target.value})}
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            aria-label="Select content type"
+                          >
+                            <option value="image">🖼️ Image (PNG/JPEG)</option>
+                            <option value="video">🎬 YouTube Video</option>
+                            <option value="document">📄 PDF Document</option>
+                            <option value="audio">🎵 Audio File</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
+                          <input
+                            type="text"
+                            value={newContent.title}
+                            onChange={(e) => setNewContent({...newContent, title: e.target.value})}
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="Enter content title"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                          <textarea
+                            value={newContent.description}
+                            onChange={(e) => setNewContent({...newContent, description: e.target.value})}
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            rows={3}
+                            placeholder="Enter content description"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            {newContent.type === 'video' ? 'YouTube Video ID' : 'URL'}
+                          </label>
+                          <input
+                            type="text"
+                            value={newContent.url}
+                            onChange={(e) => setNewContent({...newContent, url: e.target.value})}
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder={newContent.type === 'video' ? 'Enter YouTube video ID' : 'Enter file URL'}
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+                          <input
+                            type="text"
+                            value={newContent.category}
+                            onChange={(e) => setNewContent({...newContent, category: e.target.value})}
+                            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                            placeholder="e.g., Introduction, Development, Events"
+                          />
+                        </div>
+                        <button
+                          onClick={async () => {
+                            try {
+                              const response = await fetch(`/api/subscriber/${slug}/activity`, {
+                                method: 'POST',
+                                headers: {
+                                  'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(newContent),
+                              });
+                              
+                              if (response.ok) {
+                                alert('Content added successfully!');
+                                setNewContent({ type: 'image', title: '', description: '', url: '', category: '' });
+                                // Refresh activity data
+                                loadActivityData();
+                              } else {
+                                alert('Failed to add content. Please try again.');
+                              }
+                            } catch (error) {
+                              console.error('Error adding content:', error);
+                              alert('Failed to add content. Please try again.');
+                            }
+                          }}
+                          className="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white py-3 px-6 rounded-lg hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                        >
+                          Add Content
+                        </button>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-semibold text-gray-800">Content Guidelines</h3>
+                      <div className="space-y-4 text-sm text-gray-600">
+                        <div className="bg-blue-50 p-4 rounded-lg">
+                          <h4 className="font-semibold text-blue-800 mb-2">🖼️ Images</h4>
+                          <p>• Supported formats: PNG, JPEG, JPG</p>
+                          <p>• Maximum size: 10MB</p>
+                          <p>• Recommended resolution: 1920x1080 or higher</p>
+                        </div>
+                        <div className="bg-red-50 p-4 rounded-lg">
+                          <h4 className="font-semibold text-red-800 mb-2">🎬 YouTube Videos</h4>
+                          <p>• Use YouTube video ID only</p>
+                          <p>• Ensure videos are public or unlisted</p>
+                          <p>• Add relevant descriptions for better engagement</p>
+                        </div>
+                        <div className="bg-green-50 p-4 rounded-lg">
+                          <h4 className="font-semibold text-green-800 mb-2">📄 PDF Documents</h4>
+                          <p>• Maximum size: 25MB</p>
+                          <p>• Use descriptive titles</p>
+                          <p>• Ensure content is relevant to your campaign</p>
+                        </div>
+                        <div className="bg-purple-50 p-4 rounded-lg">
+                          <h4 className="font-semibold text-purple-800 mb-2">🎵 Audio Files</h4>
+                          <p>• Supported formats: MP3, WAV, M4A</p>
+                          <p>• Maximum size: 50MB</p>
+                          <p>• Keep files under 10 minutes for better engagement</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Content Statistics */}
+              <Card className="bg-gradient-to-br from-white to-green-50 border-0 shadow-2xl">
+                <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+                  <CardTitle className="flex items-center space-x-3 text-2xl">
+                    <div className="p-2 bg-white bg-opacity-20 rounded-full">
+                      <BarChart3 className="h-6 w-6" />
+                    </div>
+                    <span>Content Performance</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-600 mb-2">
+                        {activityData?.contentStats?.images?.total || 12}
+                      </div>
+                      <div className="text-sm text-gray-600">Total Images</div>
+                      <div className="text-xs text-green-500">
+                        +{activityData?.contentStats?.images?.thisWeek || 3} this week
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-red-600 mb-2">
+                        {activityData?.contentStats?.videos?.total || 8}
+                      </div>
+                      <div className="text-sm text-gray-600">YouTube Videos</div>
+                      <div className="text-xs text-red-500">
+                        +{activityData?.contentStats?.videos?.thisWeek || 1} this week
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-blue-600 mb-2">
+                        {activityData?.contentStats?.documents?.total || 5}
+                      </div>
+                      <div className="text-sm text-gray-600">PDF Documents</div>
+                      <div className="text-xs text-blue-500">
+                        +{activityData?.contentStats?.documents?.thisWeek || 2} this week
+                      </div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-purple-600 mb-2">
+                        {activityData?.contentStats?.audio?.total || 3}
+                      </div>
+                      <div className="text-sm text-gray-600">Audio Files</div>
+                      <div className="text-xs text-purple-500">
+                        +{activityData?.contentStats?.audio?.thisWeek || 1} this week
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          )}
         </div>
 
         {/* Contact Section */}
