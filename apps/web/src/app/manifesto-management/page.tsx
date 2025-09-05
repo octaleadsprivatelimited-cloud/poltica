@@ -279,7 +279,7 @@ export default function ManifestoManagementPage() {
 
   const copyManifestoUrl = () => {
     if (manifesto) {
-      const url = `${window.location.origin}/${manifesto.slug}`;
+      const url = `${window.location.origin}/manifesto/${manifesto.slug}`;
       navigator.clipboard.writeText(url);
       setSuccess('Manifesto URL copied to clipboard!');
     }
@@ -288,7 +288,7 @@ export default function ManifestoManagementPage() {
   const shareManifesto = (platform: string) => {
     if (!manifesto) return;
     
-    const url = `${window.location.origin}/${manifesto.slug}`;
+    const url = `${window.location.origin}/manifesto/${manifesto.slug}`;
     const title = manifesto.manifesto.title;
     
     let shareUrl = '';
@@ -601,7 +601,7 @@ export default function ManifestoManagementPage() {
                       Your Manifesto
                     </CardTitle>
                     <CardDescription>
-                      Public URL: <span className="font-mono text-sm">{window.location.origin}/{manifesto.slug}</span>
+                      Public URL: <span className="font-mono text-sm">{window.location.origin}/manifesto/{manifesto.slug}</span>
                     </CardDescription>
                   </div>
                   <div className="flex gap-2">
@@ -615,7 +615,7 @@ export default function ManifestoManagementPage() {
                       Copy Link
                     </Button>
                     <Button
-                      onClick={() => window.open(`/${manifesto.slug}`, '_blank')}
+                      onClick={() => window.open(`/manifesto/${manifesto.slug}`, '_blank')}
                       variant="outline"
                       size="sm"
                       className="flex items-center gap-2"

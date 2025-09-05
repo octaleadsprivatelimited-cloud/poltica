@@ -1550,12 +1550,12 @@ export default function AddSubscriberPage() {
                 </h3>
                 <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
                   <code className="flex-1 text-sm font-mono break-all">
-                    {window.location.origin}/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                    {window.location.origin}/manifesto/village/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
                   </code>
                   <Button
                     size="sm"
                     onClick={() => {
-                      const manifestoUrl = `${window.location.origin}/${formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/${formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                      const manifestoUrl = `${window.location.origin}/manifesto/village/${formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/${formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
                       navigator.clipboard.writeText(manifestoUrl);
                       setCopied(true);
                       setTimeout(() => setCopied(false), 2000);
@@ -2008,7 +2008,7 @@ export default function AddSubscriberPage() {
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <h4 className="font-medium text-blue-900 mb-2">Generated URL Preview</h4>
                   <p className="text-sm text-blue-700">
-                    <strong>URL Format:</strong> {window.location.origin}/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                    <strong>URL Format:</strong> {window.location.origin}/manifesto/village/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
                   </p>
                   <p className="text-xs text-blue-600 mt-1">
                     This URL will be automatically generated based on village and name
