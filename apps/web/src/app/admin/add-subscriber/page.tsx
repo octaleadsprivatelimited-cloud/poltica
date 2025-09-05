@@ -1207,7 +1207,8 @@ import {
   Link as LinkIcon,
   Copy,
   Check,
-  Hash
+  Hash,
+  FileText
 } from 'lucide-react';
 
 interface SubscriberFormData {
@@ -1230,6 +1231,15 @@ interface SubscriberFormData {
     ivr: number;
     whatsapp: number;
   };
+  createManifesto: boolean;
+  manifestoTitle: string;
+  manifestoDescription: string;
+  pollingDate: string;
+  pollingTime: string;
+  boothNumber: string;
+  wardNumber: string;
+  constituency: string;
+  party: string;
 }
 
 export default function AddSubscriberPage() {
@@ -1254,6 +1264,15 @@ export default function AddSubscriberPage() {
       ivr: 500,
       whatsapp: 2000,
     },
+    createManifesto: false,
+    manifestoTitle: '',
+    manifestoDescription: '',
+    pollingDate: '',
+    pollingTime: '',
+    boothNumber: '',
+    wardNumber: '',
+    constituency: '',
+    party: '',
   });
   
   const [loading, setLoading] = useState(false);
@@ -1418,6 +1437,15 @@ export default function AddSubscriberPage() {
         ivr: 500,
         whatsapp: 2000,
       },
+      createManifesto: false,
+      manifestoTitle: '',
+      manifestoDescription: '',
+      pollingDate: '',
+      pollingTime: '',
+      boothNumber: '',
+      wardNumber: '',
+      constituency: '',
+      party: '',
     });
     setSuccess(false);
     setGeneratedUrl('');
@@ -1514,13 +1542,43 @@ export default function AddSubscriberPage() {
               </p>
             </div>
 
+            {formData.createManifesto && (
+              <div className="border-t pt-6">
+                <h3 className="font-medium mb-3 flex items-center gap-2">
+                  <FileText className="h-4 w-4" />
+                  Manifesto Page URL
+                </h3>
+                <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg">
+                  <code className="flex-1 text-sm font-mono break-all">
+                    {window.location.origin}/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                  </code>
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      const manifestoUrl = `${window.location.origin}/${formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/${formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`;
+                      navigator.clipboard.writeText(manifestoUrl);
+                      setCopied(true);
+                      setTimeout(() => setCopied(false), 2000);
+                    }}
+                    className="flex items-center gap-1"
+                  >
+                    {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                    {copied ? 'Copied!' : 'Copy'}
+                  </Button>
+                </div>
+                <p className="text-xs text-gray-500 mt-2">
+                  This is the public manifesto page URL for {formData.name} from {formData.village}.
+                </p>
+              </div>
+            )}
+
             <div className="flex gap-3">
               <Button onClick={resetForm} className="flex items-center gap-2">
                 <UserPlus className="h-4 w-4" />
                 Add Another Subscriber
               </Button>
               <Button 
-                onClick={() => router.push('/admin/subscribers')}
+                onClick={() => router.push('/admin/subscribers?refresh=true')}
                 className="flex items-center gap-2"
               >
                 View All Subscribers
@@ -1815,6 +1873,149 @@ export default function AddSubscriberPage() {
                 className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-20 resize-none"
               />
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Manifesto Creation */}
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <LinkIcon className="h-5 w-5" />
+              Manifesto & URL Creation
+            </CardTitle>
+            <CardDescription>Create a unique manifesto page and URL for this subscriber</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center space-x-2">
+              <input
+                type="checkbox"
+                id="createManifesto"
+                checked={formData.createManifesto}
+                onChange={(e) => setFormData(prev => ({ ...prev, createManifesto: e.target.checked }))}
+                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
+              />
+              <label htmlFor="createManifesto" className="text-sm font-medium text-gray-700">
+                Create manifesto page and unique URL for this subscriber
+              </label>
+            </div>
+
+            {formData.createManifesto && (
+              <div className="space-y-4 border-t pt-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Manifesto Title *
+                    </label>
+                    <Input
+                      name="manifestoTitle"
+                      value={formData.manifestoTitle}
+                      onChange={handleInputChange}
+                      placeholder="Election Manifesto 2024"
+                      required={formData.createManifesto}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Political Party
+                    </label>
+                    <Input
+                      name="party"
+                      value={formData.party}
+                      onChange={handleInputChange}
+                      placeholder="Party name"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Manifesto Description *
+                  </label>
+                  <textarea
+                    name="manifestoDescription"
+                    value={formData.manifestoDescription}
+                    onChange={handleInputChange}
+                    placeholder="Describe the candidate's vision and goals..."
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-20 resize-none"
+                    required={formData.createManifesto}
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Polling Date *
+                    </label>
+                    <Input
+                      name="pollingDate"
+                      type="date"
+                      value={formData.pollingDate}
+                      onChange={handleInputChange}
+                      required={formData.createManifesto}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Polling Time *
+                    </label>
+                    <Input
+                      name="pollingTime"
+                      value={formData.pollingTime}
+                      onChange={handleInputChange}
+                      placeholder="7:00 AM - 6:00 PM"
+                      required={formData.createManifesto}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Constituency *
+                    </label>
+                    <Input
+                      name="constituency"
+                      value={formData.constituency}
+                      onChange={handleInputChange}
+                      placeholder="Constituency name"
+                      required={formData.createManifesto}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Booth Number
+                    </label>
+                    <Input
+                      name="boothNumber"
+                      value={formData.boothNumber}
+                      onChange={handleInputChange}
+                      placeholder="Booth 123"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">
+                      Ward Number
+                    </label>
+                    <Input
+                      name="wardNumber"
+                      value={formData.wardNumber}
+                      onChange={handleInputChange}
+                      placeholder="Ward 5"
+                    />
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h4 className="font-medium text-blue-900 mb-2">Generated URL Preview</h4>
+                  <p className="text-sm text-blue-700">
+                    <strong>URL Format:</strong> {window.location.origin}/{formData.village.toLowerCase().replace(/[^a-z0-9]/g, '-')}/{formData.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}
+                  </p>
+                  <p className="text-xs text-blue-600 mt-1">
+                    This URL will be automatically generated based on village and name
+                  </p>
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 

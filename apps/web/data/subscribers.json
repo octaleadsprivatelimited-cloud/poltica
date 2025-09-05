@@ -48,12 +48,17 @@
     "location": "3-210, Tatipaka",
     "plan": "Premium",
     "teamSize": 10,
-    "village": "Tatipaka",
+    "village": "tatipaka",
     "district": "East Godavari",
-    "state": "Andhra Pradesh",
+    "state": "Andhra PRADESH",
     "whatsappNumber": "+91 9000056498",
-    "campaignFocus": "Village Development & Education",
-    "interests": ["Education", "Healthcare", "Infrastructure", "Agriculture"],
+    "campaignFocus": "",
+    "interests": [
+      "Education",
+      "Healthcare",
+      "Infrastructure",
+      "Agriculture"
+    ],
     "bio": "Dedicated to serving the people of Tatipaka with focus on education, healthcare, and sustainable development. Committed to transparent governance and community welfare.",
     "audioFiles": [
       {
@@ -135,12 +140,7 @@
         "category": "Events"
       }
     ],
-    "village": "tatipaka",
-    "district": "East Godavari",
-    "state": "Andhra PRADESH",
     "pincode": "533249",
-    "whatsappNumber": "+91 9000056498",
-    "campaignFocus": "",
     "expectedAudience": 1000,
     "budget": 500000,
     "uniqueUrl": "https://sarpanch-campaign.com/bheemesh-uum1qc",
@@ -1003,5 +1003,48 @@
       "whatsapp": 0
     },
     "lastResetDate": "2025-09-04T18:38:35.961Z"
+  },
+  {
+    "id": "TG250009",
+    "name": "sri",
+    "email": "sri123@gmail.com",
+    "phone": "900000009",
+    "location": "2nd floor, kphb",
+    "plan": "Standard",
+    "teamSize": 1,
+    "village": "Kukatpally",
+    "district": "Hyderabad",
+    "state": "Telangana",
+    "pincode": "500072",
+    "whatsappNumber": "900000009",
+    "campaignFocus": "",
+    "expectedAudience": 1000,
+    "budget": 0,
+    "messageLimits": {
+      "sms": 15000,
+      "ivr": 15000,
+      "whatsapp": 2000
+    },
+    "uniqueUrl": "https://sarpanch-campaign.com/sri-i1j246",
+    "status": "Active",
+    "joinDate": "2025-09-05T03:29:30.168Z",
+    "lastActive": "2025-09-05T03:29:30.168Z",
+    "totalCampaigns": 0,
+    "totalMessages": 0,
+    "revenue": 0,
+    "whatsappMessages": 0,
+    "smsMessages": 0,
+    "ivrCalls": 0,
+    "linkClicks": 0,
+    "engagementRate": 0,
+    "avgResponseTime": 0,
+    "subscriptionEnd": "2025-10-05T03:29:30.168Z",
+    "paymentStatus": "Trial",
+    "messageUsage": {
+      "sms": 0,
+      "ivr": 0,
+      "whatsapp": 0
+    },
+    "lastResetDate": "2025-09-05T03:29:30.168Z"
   }
 ]

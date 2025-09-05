@@ -245,93 +245,49 @@ export default function SubscribersPage() {
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [loading, setLoading] = useState(true);
   const [selectedSubscriber, setSelectedSubscriber] = useState<Subscriber | null>(null);
+  const [lastRefresh, setLastRefresh] = useState<Date>(new Date());
+  const [autoRefresh, setAutoRefresh] = useState(true);
+  const [previousSubscriberCount, setPreviousSubscriberCount] = useState(0);
+  const [showNewSubscriberNotification, setShowNewSubscriberNotification] = useState(false);
 
   const loadSubscribers = async () => {
     console.log('loadSubscribers called');
     try {
-      // Use static data for testing
-      const testSubscribers: Subscriber[] = [
-        {
-          id: 'AP255454',
-          name: 'bheemesh',
-          email: 'sri@gmail.com',
-          phone: '9000045454',
-          location: '3-210',
-          plan: 'Premium',
-          status: 'Active',
-          joinDate: '2025-09-04T18:38:35.961Z',
-          lastActive: '2025-09-04T18:38:35.961Z',
-          totalCampaigns: 0,
-          totalMessages: 0,
-          revenue: 0,
-          teamSize: 20,
-          whatsappMessages: 0,
-          smsMessages: 0,
-          ivrCalls: 0,
-          linkClicks: 0,
-          engagementRate: 0,
-          avgResponseTime: 0,
-          subscriptionEnd: '2025-10-04T18:38:35.961Z',
-          paymentStatus: 'Trial',
-          uniqueUrl: 'https://sarpanch-campaign.com/bheemesh-0ua8wo',
-          village: 'Jaggannapeta',
-          district: 'East Godavari',
-          state: 'Andhra Pradesh',
-          whatsappNumber: '9000045454',
-          campaignFocus: 'Test Campaign',
-          messageLimits: { sms: 25000, ivr: 10000, whatsapp: 5000 },
-          messageUsage: { sms: 0, ivr: 0, whatsapp: 0 },
-          lastResetDate: '2025-09-04T18:38:35.961Z',
-        },
-        {
-          id: 'MH241234',
-          name: 'Test User',
-          email: 'test@example.com',
-          phone: '9876543210',
-          location: 'Mumbai',
-          plan: 'Standard',
-          status: 'Active',
-          joinDate: '2025-09-04T18:38:35.961Z',
-          lastActive: '2025-09-04T18:38:35.961Z',
-          totalCampaigns: 5,
-          totalMessages: 1000,
-          revenue: 5000,
-          teamSize: 10,
-          whatsappMessages: 800,
-          smsMessages: 150,
-          ivrCalls: 50,
-          linkClicks: 25,
-          engagementRate: 15.5,
-          avgResponseTime: 2.1,
-          subscriptionEnd: '2025-10-04T18:38:35.961Z',
-          paymentStatus: 'Paid',
-          uniqueUrl: 'https://sarpanch-campaign.com/test-user-abc123',
-          village: 'Mumbai City',
-          district: 'Mumbai',
-          state: 'Maharashtra',
-          whatsappNumber: '9876543210',
-          campaignFocus: 'Election Campaign',
-          messageLimits: { sms: 10000, ivr: 5000, whatsapp: 20000 },
-          messageUsage: { sms: 150, ivr: 50, whatsapp: 800 },
-          lastResetDate: '2025-09-04T18:38:35.961Z',
-        }
-      ];
+      // Fetch subscribers from API
+      const response = await fetch('/api/admin/subscribers');
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to fetch subscribers');
+      }
 
-      console.log('Loaded test subscribers:', testSubscribers.length);
-      setSubscribers(testSubscribers);
+      const fetchedSubscribers: Subscriber[] = data.subscribers || [];
+      console.log('Loaded subscribers from API:', fetchedSubscribers.length);
+      
+      // Check for new subscribers
+      if (previousSubscriberCount > 0 && fetchedSubscribers.length > previousSubscriberCount) {
+        const newCount = fetchedSubscribers.length - previousSubscriberCount;
+        console.log(`New subscribers detected: ${newCount}`);
+        setShowNewSubscriberNotification(true);
+        // Auto-hide notification after 5 seconds
+        setTimeout(() => setShowNewSubscriberNotification(false), 5000);
+      }
+      
+      setSubscribers(fetchedSubscribers);
+      setPreviousSubscriberCount(fetchedSubscribers.length);
       
       // Calculate stats
       const calculatedStats = {
-        total: testSubscribers.length,
-        active: testSubscribers.filter(s => s.status === 'Active').length,
-        inactive: testSubscribers.filter(s => s.status === 'Inactive').length,
-        suspended: testSubscribers.filter(s => s.status === 'Suspended').length,
-        trial: testSubscribers.filter(s => s.status === 'Trial').length,
-        totalRevenue: testSubscribers.reduce((sum, s) => sum + s.revenue, 0),
-        monthlyRevenue: testSubscribers.filter(s => s.status === 'Active').reduce((sum, s) => sum + (s.plan === 'Premium' ? 1500 : s.plan === 'Standard' ? 800 : 300), 0),
-        avgEngagement: testSubscribers.length > 0 ? testSubscribers.reduce((sum, s) => sum + s.engagementRate, 0) / testSubscribers.length : 0,
-        totalMessages: testSubscribers.reduce((sum, s) => sum + s.totalMessages, 0),
-        totalCampaigns: testSubscribers.reduce((sum, s) => sum + s.totalCampaigns, 0),
+        total: fetchedSubscribers.length,
+        active: fetchedSubscribers.filter(s => s.status === 'Active').length,
+        inactive: fetchedSubscribers.filter(s => s.status === 'Inactive').length,
+        suspended: fetchedSubscribers.filter(s => s.status === 'Suspended').length,
+        trial: fetchedSubscribers.filter(s => s.status === 'Trial').length,
+        totalRevenue: fetchedSubscribers.reduce((sum, s) => sum + s.revenue, 0),
+        monthlyRevenue: fetchedSubscribers.filter(s => s.status === 'Active').reduce((sum, s) => sum + (s.plan === 'Premium' ? 1500 : s.plan === 'Standard' ? 800 : 300), 0),
+        avgEngagement: fetchedSubscribers.length > 0 ? fetchedSubscribers.reduce((sum, s) => sum + s.engagementRate, 0) / fetchedSubscribers.length : 0,
+        totalMessages: fetchedSubscribers.reduce((sum, s) => sum + s.totalMessages, 0),
+        totalCampaigns: fetchedSubscribers.reduce((sum, s) => sum + s.totalCampaigns, 0),
       };
       
       setStats(calculatedStats);
@@ -352,6 +308,56 @@ export default function SubscribersPage() {
       console.error('loadSubscribers failed:', error);
     });
   }, []);
+
+  // Handle refresh parameter from URL
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('refresh') === 'true') {
+      console.log('Refresh parameter detected, reloading subscribers...');
+      loadSubscribers();
+      setLastRefresh(new Date());
+      // Remove the refresh parameter from URL
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+  }, []);
+
+  // Auto-refresh functionality
+  useEffect(() => {
+    if (!autoRefresh) return;
+
+    // Refresh every 30 seconds
+    const interval = setInterval(() => {
+      console.log('Auto-refreshing subscribers...');
+      loadSubscribers();
+      setLastRefresh(new Date());
+    }, 30000);
+
+    // Refresh when page becomes visible
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        console.log('Page became visible, refreshing subscribers...');
+        loadSubscribers();
+        setLastRefresh(new Date());
+      }
+    };
+
+    // Refresh when window regains focus
+    const handleFocus = () => {
+      console.log('Window focused, refreshing subscribers...');
+      loadSubscribers();
+      setLastRefresh(new Date());
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', handleFocus);
+
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', handleFocus);
+    };
+  }, [autoRefresh]);
 
   // Debounce search term
   useEffect(() => {
@@ -380,7 +386,7 @@ export default function SubscribersPage() {
         }
         
         // Add phone suggestions
-        if (sub.phone.includes(searchTerm) && !suggestions.includes(sub.phone)) {
+        if (sub.phone.toLowerCase().includes(termLower) && !suggestions.includes(sub.phone)) {
           suggestions.push(sub.phone);
         }
         
@@ -393,6 +399,21 @@ export default function SubscribersPage() {
         if (sub.village?.toLowerCase().includes(termLower) && !suggestions.includes(sub.village)) {
           suggestions.push(sub.village);
         }
+        
+        // Add WhatsApp suggestions
+        if (sub.whatsappNumber?.toLowerCase().includes(termLower) && !suggestions.includes(sub.whatsappNumber)) {
+          suggestions.push(sub.whatsappNumber);
+        }
+        
+        // Add district suggestions
+        if (sub.district?.toLowerCase().includes(termLower) && !suggestions.includes(sub.district)) {
+          suggestions.push(sub.district);
+        }
+        
+        // Add state suggestions
+        if (sub.state?.toLowerCase().includes(termLower) && !suggestions.includes(sub.state)) {
+          suggestions.push(sub.state);
+        }
       });
 
       setSearchSuggestions(suggestions.slice(0, 5)); // Limit to 5 suggestions
@@ -400,10 +421,6 @@ export default function SubscribersPage() {
       setSearchSuggestions([]);
     }
   }, [searchTerm, subscribers]);
-
-  useEffect(() => {
-    filterSubscribers();
-  }, [subscribers, debouncedSearchTerm, filterPlan, filterStatus, sortBy, sortOrder]);
 
   const loadDemoData = () => {
     // Enhanced demo data for subscribers
@@ -567,7 +584,7 @@ export default function SubscribersPage() {
     setStats(calculatedStats);
   };
 
-  const filterSubscribers = () => {
+  const filterSubscribers = useCallback(() => {
     console.log('filterSubscribers called, subscribers count:', subscribers.length);
     let filtered = [...subscribers];
 
@@ -578,13 +595,13 @@ export default function SubscribersPage() {
         // Search in multiple fields
         const nameMatch = sub.name.toLowerCase().includes(searchLower);
         const emailMatch = sub.email.toLowerCase().includes(searchLower);
-        const phoneMatch = sub.phone.includes(debouncedSearchTerm);
+        const phoneMatch = sub.phone.toLowerCase().includes(searchLower);
         const locationMatch = sub.location.toLowerCase().includes(searchLower);
         const subscriberIdMatch = sub.id.toLowerCase().includes(searchLower);
         const villageMatch = sub.village?.toLowerCase().includes(searchLower) || false;
         const districtMatch = sub.district?.toLowerCase().includes(searchLower) || false;
         const stateMatch = sub.state?.toLowerCase().includes(searchLower) || false;
-        const whatsappMatch = sub.whatsappNumber?.includes(debouncedSearchTerm) || false;
+        const whatsappMatch = sub.whatsappNumber?.toLowerCase().includes(searchLower) || false;
         
         // Also search in campaign focus
         const campaignMatch = sub.campaignFocus?.toLowerCase().includes(searchLower) || false;
@@ -643,7 +660,12 @@ export default function SubscribersPage() {
 
     console.log('filteredSubscribers set to:', filtered.length);
     setFilteredSubscribers(filtered);
-  };
+  }, [subscribers, debouncedSearchTerm, filterPlan, filterStatus, sortBy, sortOrder]);
+
+  // Call filterSubscribers when dependencies change
+  useEffect(() => {
+    filterSubscribers();
+  }, [filterSubscribers]);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -752,9 +774,22 @@ export default function SubscribersPage() {
           <p className="text-gray-600">Comprehensive management of sarpanch subscribers and their analytics</p>
         </div>
         <div className="flex gap-2">
-          <Button variant="outline" onClick={() => loadSubscribers()}>
+          <Button 
+            variant="outline" 
+            onClick={() => {
+              loadSubscribers();
+              setLastRefresh(new Date());
+            }}
+          >
             <Activity className="mr-2 h-4 w-4" />
             Refresh
+          </Button>
+          <Button 
+            variant={autoRefresh ? "default" : "outline"}
+            onClick={() => setAutoRefresh(!autoRefresh)}
+          >
+            <Zap className="mr-2 h-4 w-4" />
+            {autoRefresh ? 'Auto-Refresh ON' : 'Auto-Refresh OFF'}
           </Button>
           <Button variant="outline">
             <Download className="mr-2 h-4 w-4" />
@@ -768,6 +803,43 @@ export default function SubscribersPage() {
             <Plus className="mr-2 h-4 w-4" />
             Add Subscriber
           </Button>
+        </div>
+      </div>
+
+      {/* New Subscriber Notification */}
+      {showNewSubscriberNotification && (
+        <div className="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-green-600" />
+              <span className="text-sm font-medium text-green-800">
+                New subscriber(s) added! The list has been updated automatically.
+              </span>
+            </div>
+            <button
+              onClick={() => setShowNewSubscriberNotification(false)}
+              className="text-green-600 hover:text-green-800"
+              title="Dismiss notification"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Auto-refresh Status */}
+      <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className={`w-2 h-2 rounded-full ${autoRefresh ? 'bg-green-500' : 'bg-gray-400'}`}></div>
+            <span className="text-sm text-blue-800">
+              {autoRefresh ? 'Auto-refresh enabled' : 'Auto-refresh disabled'} • 
+              Last updated: {lastRefresh.toLocaleTimeString()}
+            </span>
+          </div>
+          <div className="text-xs text-blue-600">
+            {autoRefresh ? 'Refreshes every 30 seconds' : 'Click refresh button to update'}
+          </div>
         </div>
       </div>
 
@@ -936,6 +1008,7 @@ export default function SubscribersPage() {
             <button
               onClick={clearSearch}
               className="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center gap-1"
+              title="Clear search"
             >
               <X className="h-3 w-3" />
               Clear search
@@ -957,6 +1030,7 @@ export default function SubscribersPage() {
               <button
                 onClick={clearSearch}
                 className="text-blue-600 hover:text-blue-800 font-medium"
+                title="Clear search to see all subscribers"
               >
                 Clear search to see all subscribers
               </button>

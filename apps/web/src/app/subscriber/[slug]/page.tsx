@@ -126,6 +126,16 @@ export default function SubscriberPage() {
     loadActivityData();
   }, [slug]);
 
+  // Auto-refresh every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      loadSubscriberData();
+      loadActivityData();
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [slug]);
+
   const loadActivityData = async () => {
     try {
       const response = await fetch(`/api/subscriber/${slug}/activity`);
@@ -474,10 +484,10 @@ export default function SubscriberPage() {
                   <div>
                     <p className="text-green-100 text-sm font-medium">WhatsApp Messages</p>
                     <p className="text-3xl font-bold">
-                      {activityData?.whatsappMessages?.total?.toLocaleString() || '2,847'}
+                      {activityData?.whatsappMessages?.total?.toLocaleString() || subscriber?.whatsappMessages?.toLocaleString() || '0'}
                     </p>
                     <p className="text-green-200 text-xs">
-                      +{activityData?.whatsappMessages?.growth || 12}% this week
+                      +{activityData?.whatsappMessages?.growth || 0}% this week
                     </p>
                   </div>
                   <MessageCircle className="h-12 w-12 text-green-200" />
@@ -488,10 +498,10 @@ export default function SubscriberPage() {
                   <div>
                     <p className="text-blue-100 text-sm font-medium">SMS Sent</p>
                     <p className="text-3xl font-bold">
-                      {activityData?.smsMessages?.total?.toLocaleString() || '1,234'}
+                      {activityData?.smsMessages?.total?.toLocaleString() || subscriber?.smsMessages?.toLocaleString() || '0'}
                     </p>
                     <p className="text-blue-200 text-xs">
-                      +{activityData?.smsMessages?.growth || 8}% this week
+                      +{activityData?.smsMessages?.growth || 0}% this week
                     </p>
                   </div>
                   <Mail className="h-12 w-12 text-blue-200" />
@@ -502,10 +512,10 @@ export default function SubscriberPage() {
                   <div>
                     <p className="text-purple-100 text-sm font-medium">IVR Calls</p>
                     <p className="text-3xl font-bold">
-                      {activityData?.ivrCalls?.total?.toLocaleString() || '456'}
+                      {activityData?.ivrCalls?.total?.toLocaleString() || subscriber?.ivrCalls?.toLocaleString() || '0'}
                     </p>
                     <p className="text-purple-200 text-xs">
-                      +{activityData?.ivrCalls?.growth || 15}% this week
+                      +{activityData?.ivrCalls?.growth || 0}% this week
                     </p>
                   </div>
                   <Phone className="h-12 w-12 text-purple-200" />
@@ -516,10 +526,10 @@ export default function SubscriberPage() {
                   <div>
                     <p className="text-orange-100 text-sm font-medium">URL Clicks</p>
                     <p className="text-3xl font-bold">
-                      {activityData?.urlClicks?.total?.toLocaleString() || '3,421'}
+                      {activityData?.urlClicks?.total?.toLocaleString() || subscriber?.linkClicks?.toLocaleString() || '0'}
                     </p>
                     <p className="text-orange-200 text-xs">
-                      +{activityData?.urlClicks?.growth || 22}% this week
+                      +{activityData?.urlClicks?.growth || 0}% this week
                     </p>
                   </div>
                   <MousePointer className="h-12 w-12 text-orange-200" />
@@ -1025,38 +1035,38 @@ export default function SubscriberPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     <div className="text-center">
                       <div className="text-3xl font-bold text-green-600 mb-2">
-                        {activityData?.contentStats?.images?.total || 12}
+                        {activityData?.contentStats?.images?.total || subscriber?.images?.length || 0}
                       </div>
                       <div className="text-sm text-gray-600">Total Images</div>
                       <div className="text-xs text-green-500">
-                        +{activityData?.contentStats?.images?.thisWeek || 3} this week
+                        +{activityData?.contentStats?.images?.thisWeek || 0} this week
                       </div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-red-600 mb-2">
-                        {activityData?.contentStats?.videos?.total || 8}
+                        {activityData?.contentStats?.videos?.total || subscriber?.videos?.length || 0}
                       </div>
                       <div className="text-sm text-gray-600">YouTube Videos</div>
                       <div className="text-xs text-red-500">
-                        +{activityData?.contentStats?.videos?.thisWeek || 1} this week
+                        +{activityData?.contentStats?.videos?.thisWeek || 0} this week
                       </div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-blue-600 mb-2">
-                        {activityData?.contentStats?.documents?.total || 5}
+                        {activityData?.contentStats?.documents?.total || subscriber?.documents?.length || 0}
                       </div>
                       <div className="text-sm text-gray-600">PDF Documents</div>
                       <div className="text-xs text-blue-500">
-                        +{activityData?.contentStats?.documents?.thisWeek || 2} this week
+                        +{activityData?.contentStats?.documents?.thisWeek || 0} this week
                       </div>
                     </div>
                     <div className="text-center">
                       <div className="text-3xl font-bold text-purple-600 mb-2">
-                        {activityData?.contentStats?.audio?.total || 3}
+                        {activityData?.contentStats?.audio?.total || subscriber?.audioFiles?.length || 0}
                       </div>
                       <div className="text-sm text-gray-600">Audio Files</div>
                       <div className="text-xs text-purple-500">
-                        +{activityData?.contentStats?.audio?.thisWeek || 1} this week
+                        +{activityData?.contentStats?.audio?.thisWeek || 0} this week
                       </div>
                     </div>
                   </div>

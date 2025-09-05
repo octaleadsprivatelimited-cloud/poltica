@@ -27,7 +27,7 @@ export async function GET(
       );
     }
     
-    // Transform subscriber data for the page
+    // Transform subscriber data for the page using real data
     const subscriberData = {
       id: subscriber.id,
       name: subscriber.name,
@@ -91,7 +91,21 @@ export async function GET(
         phone: `tel:${subscriber.phone}`,
         email: `mailto:${subscriber.email}`
       },
-      lastUpdated: subscriber.lastUpdated || new Date().toISOString()
+      lastUpdated: subscriber.lastUpdated || new Date().toISOString(),
+      // Add real-time metrics
+      totalMessages: subscriber.totalMessages || 0,
+      whatsappMessages: subscriber.whatsappMessages || 0,
+      smsMessages: subscriber.smsMessages || 0,
+      ivrCalls: subscriber.ivrCalls || 0,
+      linkClicks: subscriber.linkClicks || 0,
+      engagementRate: subscriber.engagementRate || 0,
+      totalCampaigns: subscriber.totalCampaigns || 0,
+      revenue: subscriber.revenue || 0,
+      expectedAudience: subscriber.expectedAudience || 0,
+      uniqueUrl: subscriber.uniqueUrl || '',
+      status: subscriber.status || 'Active',
+      joinDate: subscriber.joinDate || new Date().toISOString(),
+      lastActive: subscriber.lastActive || new Date().toISOString()
     };
     
     return NextResponse.json(subscriberData);

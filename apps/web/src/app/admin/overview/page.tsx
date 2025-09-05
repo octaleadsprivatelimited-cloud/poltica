@@ -111,9 +111,42 @@ export default function CompanyDashboard() {
 
   const [loading, setLoading] = useState(false); // Start with false for testing
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [subscribers, setSubscribers] = useState<{
+    id: string;
+    name: string;
+    email: string;
+    phone: string;
+    location: string;
+    plan: string;
+    status: string;
+    joinDate: string;
+    totalMessages?: number;
+    whatsappMessages?: number;
+    smsMessages?: number;
+    ivrCalls?: number;
+    linkClicks?: number;
+    engagementRate?: number;
+    totalCampaigns?: number;
+    revenue?: number;
+    expectedAudience?: number;
+    uniqueUrl?: string;
+    campaignFocus?: string;
+    village?: string;
+    district?: string;
+    state?: string;
+  }[]>([]);
 
   useEffect(() => {
     loadCompanyStats();
+  }, []);
+
+  // Auto-refresh every 30 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      loadCompanyStats();
+    }, 30000);
+
+    return () => clearInterval(interval);
   }, []);
 
   // Real-time clock effect
@@ -126,62 +159,159 @@ export default function CompanyDashboard() {
   }, []);
 
   const loadCompanyStats = async () => {
-    // Demo data for comprehensive company dashboard
-    const demoStats = {
-      totalSubscribers: 45,
-      activeSubscribers: 38,
-      monthlyRevenue: 22500,
-      totalRevenue: 180000,
-      newSubscribersThisMonth: 8,
-      totalMessagesSent: 315000,
-      totalCampaigns: 127,
-      averageEngagement: 15.2,
-      whatsappMessages: 280000,
-      smsMessages: 30000,
-      ivrCalls: 5000,
-      totalLinks: 89,
-      linkClicks: 47250,
-      activeCampaigns: 12,
-      completedCampaigns: 115,
-    };
+    try {
+      setLoading(true);
+      
+      // Fetch real subscriber data
+      const response = await fetch('/api/admin/subscribers');
+      const data = await response.json();
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to fetch subscribers');
+      }
 
-    const demoCommunicationStats = {
-      whatsapp: { 
-        sent: 280000, 
-        delivered: 275000, 
-        read: 220000, 
-        replied: 45000, 
-        failed: 5000 
-      },
-      sms: { 
-        sent: 30000, 
-        delivered: 29500, 
-        failed: 500 
-      },
-      ivr: { 
-        calls: 5000, 
-        answered: 4200, 
-        completed: 3800, 
-        missed: 800 
-      },
-    };
+      const subscribers = data.subscribers || [];
+      
+      // Calculate real-time stats from subscriber data
+      const totalSubscribers = subscribers.length;
+      const activeSubscribers = subscribers.filter((s: any) => s.status === 'Active').length;
+      const newSubscribersThisMonth = subscribers.filter((s: any) => {
+        const joinDate = new Date(s.joinDate);
+        const now = new Date();
+        return joinDate.getMonth() === now.getMonth() && joinDate.getFullYear() === now.getFullYear();
+      }).length;
+      
+      // Calculate revenue based on plan
+      const monthlyRevenue = subscribers.filter((s: any) => s.status === 'Active').reduce((sum: number, s: any) => {
+        const planPrice = s.plan === 'Premium' ? 1500 : s.plan === 'Standard' ? 800 : 300;
+        return sum + planPrice;
+      }, 0);
+      
+      const totalRevenue = subscribers.reduce((sum: number, s: any) => sum + (s.revenue || 0), 0);
+      
+      // Calculate message stats
+      const totalMessagesSent = subscribers.reduce((sum: number, s: any) => sum + (s.totalMessages || 0), 0);
+      const whatsappMessages = subscribers.reduce((sum: number, s: any) => sum + (s.whatsappMessages || 0), 0);
+      const smsMessages = subscribers.reduce((sum: number, s: any) => sum + (s.smsMessages || 0), 0);
+      const ivrCalls = subscribers.reduce((sum: number, s: any) => sum + (s.ivrCalls || 0), 0);
+      
+      // Calculate engagement
+      const averageEngagement = subscribers.length > 0 
+        ? subscribers.reduce((sum: number, s: any) => sum + (s.engagementRate || 0), 0) / subscribers.length 
+        : 0;
+      
+      // Calculate campaigns
+      const totalCampaigns = subscribers.reduce((sum: number, s: any) => sum + (s.totalCampaigns || 0), 0);
+      const activeCampaigns = Math.floor(totalCampaigns * 0.1); // Estimate 10% active
+      const completedCampaigns = totalCampaigns - activeCampaigns;
+      
+      // Calculate link stats
+      const totalLinks = subscribers.filter((s: any) => s.uniqueUrl).length;
+      const linkClicks = subscribers.reduce((sum: number, s: any) => sum + (s.linkClicks || 0), 0);
+      const activeLinks = Math.floor(totalLinks * 0.75); // Estimate 75% active
+      
+      // Get top performing links
+      const topPerforming = subscribers
+        .filter((s: any) => s.uniqueUrl && s.linkClicks > 0)
+        .sort((a: any, b: any) => (b.linkClicks || 0) - (a.linkClicks || 0))
+        .slice(0, 4)
+        .map((s: any) => ({
+          url: s.uniqueUrl,
+          clicks: s.linkClicks || 0,
+          campaign: s.campaignFocus || `${s.name}'s Campaign`
+        }));
 
-    const demoLinkStats = {
-      total: 89,
-      active: 67,
-      clicks: 47250,
-      topPerforming: [
-        { url: 'sarpanch-campaign.com/vote-rajesh', clicks: 1250, campaign: 'Vote for Rajesh' },
-        { url: 'sarpanch-campaign.com/meeting-announcement', clicks: 980, campaign: 'Village Meeting' },
-        { url: 'sarpanch-campaign.com/development-plan', clicks: 750, campaign: 'Development Plan' },
-        { url: 'sarpanch-campaign.com/feedback', clicks: 620, campaign: 'Feedback Form' },
-      ],
-    };
+      const realStats = {
+        totalSubscribers,
+        activeSubscribers,
+        monthlyRevenue,
+        totalRevenue,
+        newSubscribersThisMonth,
+        totalMessagesSent,
+        totalCampaigns,
+        averageEngagement: Math.round(averageEngagement * 100) / 100,
+        whatsappMessages,
+        smsMessages,
+        ivrCalls,
+        totalLinks,
+        linkClicks,
+        activeCampaigns,
+        completedCampaigns,
+      };
 
-    setStats(demoStats);
-    setCommunicationStats(demoCommunicationStats);
-    setLinkStats(demoLinkStats);
-    setLoading(false);
+      // Calculate communication stats with realistic delivery rates
+      const communicationStats = {
+        whatsapp: { 
+          sent: whatsappMessages, 
+          delivered: Math.floor(whatsappMessages * 0.98), 
+          read: Math.floor(whatsappMessages * 0.78), 
+          replied: Math.floor(whatsappMessages * 0.16), 
+          failed: Math.floor(whatsappMessages * 0.02) 
+        },
+        sms: { 
+          sent: smsMessages, 
+          delivered: Math.floor(smsMessages * 0.95), 
+          failed: Math.floor(smsMessages * 0.05) 
+        },
+        ivr: { 
+          calls: ivrCalls, 
+          answered: Math.floor(ivrCalls * 0.84), 
+          completed: Math.floor(ivrCalls * 0.76), 
+          missed: Math.floor(ivrCalls * 0.16) 
+        },
+      };
+
+      const linkStats = {
+        total: totalLinks,
+        active: activeLinks,
+        clicks: linkClicks,
+        topPerforming,
+      };
+
+      setStats(realStats);
+      setCommunicationStats(communicationStats);
+      setLinkStats(linkStats);
+      setSubscribers(subscribers);
+    } catch (error) {
+      console.error('Error loading company stats:', error);
+      // Fallback to demo data on error
+      const demoStats = {
+        totalSubscribers: 0,
+        activeSubscribers: 0,
+        monthlyRevenue: 0,
+        totalRevenue: 0,
+        newSubscribersThisMonth: 0,
+        totalMessagesSent: 0,
+        totalCampaigns: 0,
+        averageEngagement: 0,
+        whatsappMessages: 0,
+        smsMessages: 0,
+        ivrCalls: 0,
+        totalLinks: 0,
+        linkClicks: 0,
+        activeCampaigns: 0,
+        completedCampaigns: 0,
+      };
+
+      const demoCommunicationStats = {
+        whatsapp: { sent: 0, delivered: 0, read: 0, replied: 0, failed: 0 },
+        sms: { sent: 0, delivered: 0, failed: 0 },
+        ivr: { calls: 0, answered: 0, completed: 0, missed: 0 },
+      };
+
+      const demoLinkStats = {
+        total: 0,
+        active: 0,
+        clicks: 0,
+        topPerforming: [],
+      };
+
+      setStats(demoStats);
+      setCommunicationStats(demoCommunicationStats);
+      setLinkStats(demoLinkStats);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const StatCard = ({ 
@@ -426,10 +556,10 @@ export default function CompanyDashboard() {
                 <span className="font-bold">{stats.completedCampaigns}</span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-2">
-                                  <div 
-                    className="h-2 rounded-full bg-gradient-to-r from-green-500 to-blue-500"
-                    style={{ width: `${Math.min((stats.activeCampaigns / (stats.activeCampaigns + stats.completedCampaigns)) * 100, 100)}%` }}
-                  ></div>
+                <div 
+                  className="h-2 rounded-full bg-gradient-to-r from-green-500 to-blue-500"
+                  style={{ width: `${Math.min((stats.activeCampaigns / (stats.activeCampaigns + stats.completedCampaigns)) * 100, 100)}%` }}
+                ></div>
               </div>
             </div>
           </CardContent>
@@ -468,26 +598,45 @@ export default function CompanyDashboard() {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              {[
-                { name: 'Rajesh Kumar', location: 'Village A, District X', plan: 'Premium', date: '2 hours ago', status: 'active' },
-                { name: 'Priya Sharma', location: 'Village B, District Y', plan: 'Standard', date: '4 hours ago', status: 'active' },
-                { name: 'Amit Patel', location: 'Village C, District Z', plan: 'Premium', date: '1 day ago', status: 'pending' },
-                { name: 'Sunita Devi', location: 'Village D, District X', plan: 'Basic', date: '2 days ago', status: 'active' },
-              ].map((subscriber, index) => (
+              {subscribers
+                .sort((a, b) => new Date(b.joinDate).getTime() - new Date(a.joinDate).getTime())
+                .slice(0, 4)
+                .map((subscriber, index) => {
+                  const joinDate = new Date(subscriber.joinDate);
+                  const now = new Date();
+                  const diffInHours = Math.floor((now.getTime() - joinDate.getTime()) / (1000 * 60 * 60));
+                  
+                  let timeAgo;
+                  if (diffInHours < 1) {
+                    timeAgo = 'Just now';
+                  } else if (diffInHours < 24) {
+                    timeAgo = `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+                  } else {
+                    const diffInDays = Math.floor(diffInHours / 24);
+                    timeAgo = `${diffInDays} day${diffInDays > 1 ? 's' : ''} ago`;
+                  }
+                  
+                  return (
                 <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
                   <div className="flex items-center gap-3">
-                    <div className={`w-2 h-2 rounded-full ${subscriber.status === 'active' ? 'bg-green-500' : 'bg-yellow-500'}`}></div>
+                    <div className={`w-2 h-2 rounded-full ${subscriber.status === 'Active' ? 'bg-green-500' : 'bg-yellow-500'}`}></div>
                     <div>
                       <p className="font-medium">{subscriber.name}</p>
-                      <p className="text-sm text-gray-500">{subscriber.location}</p>
+                      <p className="text-sm text-gray-500">
+                        {subscriber.village && subscriber.district && subscriber.state 
+                          ? `${subscriber.village}, ${subscriber.district}, ${subscriber.state}`
+                          : subscriber.location
+                        }
+                      </p>
                     </div>
                   </div>
                   <div className="text-right">
                     <p className="text-sm font-medium">{subscriber.plan}</p>
-                    <p className="text-xs text-gray-500">{subscriber.date}</p>
+                    <p className="text-xs text-gray-500">{timeAgo}</p>
                   </div>
                 </div>
-              ))}
+                  );
+                })}
             </div>
           </CardContent>
         </Card>

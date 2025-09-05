@@ -1,0 +1,415 @@
+2025-09-05T03:29:30.208381Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/data/subscribers.json")}
+2025-09-05T03:29:30.209241Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:29:30.304213Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".turbo/daemon/a33d681042b8663a-turbo.log.2025-09-05"), AnchoredSystemPathBuf(".turbo/daemon/a33d681042b8663a-turbo.log.2025-09-04")}
+2025-09-05T03:29:30.304234Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T03:31:11.408452Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:11.409304Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:15.304366Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:15.304378Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:21.303629Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:21.303640Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:27.603453Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:27.603500Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:32.504088Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:32.504101Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:35.804109Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T03:31:35.804131Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:40.803858Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:40.803886Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:53.504150Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:53.504205Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:31:58.305481Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:31:58.305595Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:32:07.304844Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:32:07.304970Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:32:25.605253Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:32:25.605333Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:32:25.624985Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T03:34:37.407915Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:34:37.408409Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:34:45.405120Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:34:45.405166Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:00.610906Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:00.610922Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:05.604695Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:05.604716Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:23.304602Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:23.304627Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:28.404937Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:28.404956Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:37.705470Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:37.705492Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:46.805004Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:46.805018Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:35:59.305911Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:35:59.306003Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:36:11.504210Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:36:11.504237Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:36:15.005055Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:36:15.005069Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:36:24.605304Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:36:24.605508Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:36:39.705257Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/subscribers/page.tsx")}
+2025-09-05T03:36:39.705269Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T03:36:39.705319Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T03:59:52.153259Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T03:59:52.154468Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:01.049231Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:00:01.049258Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:12.049451Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:00:12.049489Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:16.849733Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:00:16.849752Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:23.952021Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:00:23.952050Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:28.454901Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:00:28.454945Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:40.258892Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:00:40.258942Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:00:52.761912Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:00:52.762000Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:00.161027Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:01:00.161080Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:08.661462Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:08.661494Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:14.862066Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:14.862078Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:31.161558Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:31.161590Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:37.562650Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:37.562689Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:40.462733Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:40.462754Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:53.261431Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/admin/overview/page.tsx")}
+2025-09-05T04:01:53.261462Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:01:53.289899Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:03.865749Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/[slug]/route.ts")}
+2025-09-05T04:13:03.866679Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:14.659595Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/[slug]/route.ts")}
+2025-09-05T04:13:14.659647Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:14.659742Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:27.070100Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/[slug]/activity/route.ts")}
+2025-09-05T04:13:27.070145Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:30.860775Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:30.860800Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:34.259238Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/[slug]/activity/route.ts")}
+2025-09-05T04:13:34.259272Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:34.259318Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:35.859646Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:35.859665Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:35.879490Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:36.158936Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:36.158949Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:37.959905Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:37.959927Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:37.960062Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:40.360714Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:40.360735Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:44.159147Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:44.159189Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:48.659683Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:48.659701Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:49.759052Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:49.759075Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:49.765576Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:53.159920Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:53.159937Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:54.659385Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:54.659401Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:54.659809Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:57.367556Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:57.367577Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:57.459860Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:57.459877Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:57.459928Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:13:58.859487Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:13:58.859509Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:13:58.867774Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:14:01.759174Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:14:01.759202Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:14:06.259491Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:14:06.259526Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:14:42.265372Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/[slug]/activity/route.ts")}
+2025-09-05T04:14:42.266158Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:14:42.272034Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:17:15.557956Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber/[slug]/page.tsx")}
+2025-09-05T04:17:15.558854Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:17:15.558920Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:19:41.656516Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber-login"), AnchoredSystemPathBuf("apps/web/src/app/subscriber-login/page.tsx")}
+2025-09-05T04:19:41.658114Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:19:41.751769Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber-login/page.tsx")}
+2025-09-05T04:19:41.751785Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:19:52.652311Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/login"), AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/login/route.ts")}
+2025-09-05T04:19:52.652339Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:19:52.752127Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/login/route.ts")}
+2025-09-05T04:19:52.752146Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:19:52.752190Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:19:52.851316Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/login/route.ts")}
+2025-09-05T04:19:52.851331Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:20:02.351918Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:20:02.353753Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:20:17.852471Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:20:17.853196Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:20:29.352257Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:20:29.352290Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:21:00.651230Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:21:00.651274Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:21:12.653013Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/subscriber-login/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/subscriber/login/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:21:12.653145Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:21:12.653231Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:21:44.952601Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:21:44.952641Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:21:54.651437Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:21:54.651472Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:21:54.667802Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:34:58.466457Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/voter-upload"), AnchoredSystemPathBuf("apps/web/src/app/voter-upload/page.tsx")}
+2025-09-05T04:34:58.467248Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:34:58.861963Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/voter-upload/page.tsx")}
+2025-09-05T04:34:58.861977Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:21.762531Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/upload/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/voter/upload"), AnchoredSystemPathBuf("apps/web/src/app/api/voter")}
+2025-09-05T04:35:21.762571Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:21.961942Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/upload/route.ts")}
+2025-09-05T04:35:21.961965Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:36.062398Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/save/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/voter/save")}
+2025-09-05T04:35:36.062834Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:44.162285Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/list/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/voter/list")}
+2025-09-05T04:35:44.162313Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:44.261963Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/list/route.ts")}
+2025-09-05T04:35:44.262006Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:49.062218Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:35:49.062278Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:55.075213Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/voter-upload/page.tsx")}
+2025-09-05T04:35:55.075522Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:55.076745Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:35:56.462541Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/upload/route.ts")}
+2025-09-05T04:35:56.462773Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:56.478845Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:35:57.762212Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/save/route.ts")}
+2025-09-05T04:35:57.762229Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:57.762287Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:35:58.962908Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/voter/list/route.ts")}
+2025-09-05T04:35:58.962935Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:35:58.980661Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:36:00.562799Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:36:00.562896Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:36:00.562958Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:36:13.662677Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:36:13.662735Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:36:31.664799Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_49969_d038dfd52202a7280ea06acad1c2147b")}
+2025-09-05T04:36:31.664838Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T04:36:35.863033Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-09-05T04:36:35.863065Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-09-05T04:36:35.964922Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-09-05T04:36:35.964933Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-09-05T04:36:36.262322Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml.703949766"), AnchoredSystemPathBuf("pnpm-lock.yaml")}
+2025-09-05T04:36:36.262335Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T04:36:36.961663Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".husky/_/husky.sh"), AnchoredSystemPathBuf("apps/web/package.json"), AnchoredSystemPathBuf(".husky/_"), AnchoredSystemPathBuf("apps/web/package.json.3086943297"), AnchoredSystemPathBuf(".husky/_/.gitignore")}
+2025-09-05T04:36:36.961690Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }, WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T04:36:40.462455Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:36:40.462473Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:36:40.462532Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:37:19.161072Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/data/voters.json")}
+2025-09-05T04:37:19.161102Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:37:38.162259Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:37:38.162291Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:37:38.162345Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:38:24.962436Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:38:24.962515Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:38:29.361376Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:38:29.361416Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:38:29.380013Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:39:13.473875Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:39:13.473900Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:39:13.473954Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:53:26.651915Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/url-management/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/url-management")}
+2025-09-05T04:53:26.652858Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:26.747636Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/url-management/page.tsx")}
+2025-09-05T04:53:26.747661Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:26.747718Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:53:37.148217Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/create"), AnchoredSystemPathBuf("apps/web/src/app/api/urls"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/create/route.ts")}
+2025-09-05T04:53:37.148355Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:37.248046Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/create/route.ts")}
+2025-09-05T04:53:37.248063Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:40.947766Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/url-management/page.tsx")}
+2025-09-05T04:53:40.947795Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:40.947904Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:53:42.646965Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/create/route.ts")}
+2025-09-05T04:53:42.646981Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:42.647019Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:53:45.047045Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/list"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/list/route.ts")}
+2025-09-05T04:53:45.047064Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:45.248032Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/list/route.ts")}
+2025-09-05T04:53:45.248053Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:59.448168Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/[id]"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/[id]/route.ts")}
+2025-09-05T04:53:59.448219Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:53:59.548207Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/[id]/route.ts")}
+2025-09-05T04:53:59.548226Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:54:30.748539Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/list/route.ts")}
+2025-09-05T04:54:30.748598Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:54:30.786263Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:54:32.947334Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/[id]/route.ts")}
+2025-09-05T04:54:32.947355Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:54:32.947554Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:56:19.148312Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:56:19.148363Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:28.946038Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:56:28.946068Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:28.946119Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:56:31.447213Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/urls/create/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/admin/urls/create"), AnchoredSystemPathBuf("apps/web/src/app/api/admin/urls")}
+2025-09-05T04:56:31.447232Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:31.546174Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/urls/create/route.ts")}
+2025-09-05T04:56:31.546257Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:34.447009Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(""), AnchoredSystemPathBuf("_tmp_58244_506f05192587fc01ac71c45dda314106")}
+2025-09-05T04:56:34.447043Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T04:56:38.549368Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("")}
+2025-09-05T04:56:38.549391Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({}))
+2025-09-05T04:56:38.846603Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("pnpm-lock.yaml"), AnchoredSystemPathBuf("pnpm-lock.yaml.3477143827")}
+2025-09-05T04:56:38.846615Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }}))
+2025-09-05T04:56:39.546885Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf(".husky/_/.gitignore"), AnchoredSystemPathBuf("apps/web/package.json"), AnchoredSystemPathBuf("apps/web/package.json.2961588924"), AnchoredSystemPathBuf(".husky/_/husky.sh")}
+2025-09-05T04:56:39.546897Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Root, path: AnchoredSystemPathBuf("") }, WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:53.046686Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/r/[slug]/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/r"), AnchoredSystemPathBuf("apps/web/src/app/r/[slug]")}
+2025-09-05T04:56:53.046699Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:53.147388Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/r/[slug]/page.tsx")}
+2025-09-05T04:56:53.147410Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:56:59.346719Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/redirect/[slug]/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/redirect/[slug]"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/redirect")}
+2025-09-05T04:56:59.346744Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:06.645895Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/click/[id]"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/click/[id]/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/urls/click")}
+2025-09-05T04:57:06.645910Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:06.846280Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/click/[id]/route.ts")}
+2025-09-05T04:57:06.846292Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:12.446366Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:57:12.446382Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:16.746200Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:57:16.746236Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:21.546932Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/data/urls.json")}
+2025-09-05T04:57:21.546952Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:30.146659Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/urls/create/route.ts")}
+2025-09-05T04:57:30.146726Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:30.146803Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:31.346772Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/r/[slug]/page.tsx")}
+2025-09-05T04:57:31.346955Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:31.347019Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:32.046672Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:57:32.046688Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:32.246956Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/redirect/[slug]/route.ts")}
+2025-09-05T04:57:32.246972Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:32.247035Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:33.147378Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/urls/click/[id]/route.ts")}
+2025-09-05T04:57:33.147398Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:33.147491Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:34.247105Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T04:57:34.247122Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:34.247179Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:35.647503Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:57:35.647532Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:35.647645Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:36.247333Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:57:36.247345Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:49.246274Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:57:49.246299Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:49.246450Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T04:57:53.946962Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/urls/page.tsx")}
+2025-09-05T04:57:53.946983Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T04:57:53.947086Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:02:30.569543Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto/[slug]"), AnchoredSystemPathBuf("apps/web/src/app/manifesto"), AnchoredSystemPathBuf("apps/web/src/app/manifesto/[slug]/page.tsx")}
+2025-09-05T05:02:30.570573Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:30.860946Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto/[slug]/page.tsx")}
+2025-09-05T05:02:30.860962Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:40.060765Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]")}
+2025-09-05T05:02:40.060798Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:49.161556Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto/[slug]/page.tsx")}
+2025-09-05T05:02:49.161598Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:49.164760Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:02:50.561740Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]/route.ts")}
+2025-09-05T05:02:50.561836Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:50.589269Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:02:58.561466Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:02:58.561486Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:58.660597Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:02:58.660611Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:02:58.660660Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:03:24.461832Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:03:24.461900Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:03:24.486583Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:06:19.363831Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management"), AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:06:19.364540Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:06:29.360470Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/my"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/my/route.ts")}
+2025-09-05T05:06:29.360505Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:06:47.960832Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[id]"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[id]/route.ts")}
+2025-09-05T05:06:47.960861Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:06:48.060378Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[id]/route.ts")}
+2025-09-05T05:06:48.060390Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:06:55.161203Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T05:06:55.161227Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:06:59.760830Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T05:06:59.760901Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:07:01.761294Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/data/manifestos.json")}
+2025-09-05T05:07:01.761340Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:07:23.160793Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[id]/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/my/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:07:23.160825Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:07:23.160901Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:08:22.760985Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/(dash)/dashboard/page.tsx")}
+2025-09-05T05:08:22.761034Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:08:22.761197Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:09:53.961336Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:09:53.961387Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:11.263300Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/[village]/[username]/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/[village]/[username]"), AnchoredSystemPathBuf("apps/web/src/app/[village]")}
+2025-09-05T05:12:11.263905Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:11.359667Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/[village]/[username]/page.tsx")}
+2025-09-05T05:12:11.359681Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:20.660224Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]/route.ts")}
+2025-09-05T05:12:20.660265Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:24.360285Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:12:24.360297Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:28.360193Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:12:28.360214Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:32.660123Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:12:32.660146Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:36.760988Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:12:36.761016Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:54.959239Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/[village]/[username]/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]/route.ts"), AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:12:54.959275Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:12:54.983678Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:14:14.960374Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/create/route.ts")}
+2025-09-05T05:14:14.960414Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:14:14.960514Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:14:16.159999Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/[village]/[username]/page.tsx")}
+2025-09-05T05:14:16.160023Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:14:16.160123Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:14:17.260460Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/manifesto/[slug]/route.ts")}
+2025-09-05T05:14:17.260484Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:14:17.260593Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:14:18.559944Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/manifesto-management/page.tsx")}
+2025-09-05T05:14:18.560011Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:14:18.560147Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:17:57.079710Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:17:57.080523Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:18:04.773177Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:18:04.773223Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:18:26.572378Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:18:26.572410Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:18:26.673990Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:18:26.674004Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:18:26.674053Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:19:09.473824Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:19:09.473852Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:22.073795Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:19:22.073810Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:26.173594Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:19:26.173639Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:28.674224Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx")}
+2025-09-05T05:19:28.674262Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:28.687997Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:19:33.973073Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/subscribers/route.ts")}
+2025-09-05T05:19:33.973092Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:36.972604Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/subscribers/route.ts")}
+2025-09-05T05:19:36.972627Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:19:37.001698Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:19:42.373874Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/subscribers/route.ts")}
+2025-09-05T05:19:42.373906Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:20:01.773568Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/admin/add-subscriber/page.tsx"), AnchoredSystemPathBuf("apps/web/src/app/api/admin/subscribers/route.ts")}
+2025-09-05T05:20:01.773684Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:20:01.774011Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun
+2025-09-05T05:20:19.178302Z  WARN turborepo_lib::package_changes_watcher: changed_files: {AnchoredSystemPathBuf("apps/web/src/app/api/admin/subscribers/route.ts")}
+2025-09-05T05:20:19.178350Z  WARN turborepo_lib::package_changes_watcher: changed_packages: Ok(Some({WorkspacePackage { name: Other("@sarpanch-campaign/web"), path: AnchoredSystemPathBuf("apps/web") }}))
+2025-09-05T05:20:19.187275Z  WARN turborepo_lib::package_changes_watcher: hashes are the same, no need to rerun

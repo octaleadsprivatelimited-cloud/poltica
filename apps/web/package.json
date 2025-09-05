@@ -31,6 +31,7 @@
     "csv-parse": "^5.5.2",
     "date-fns": "^2.30.0",
     "lucide-react": "^0.294.0",
+    "nanoid": "^5.1.5",
     "next": "14.0.3",
     "posthog-js": "^1.86.0",
     "react": "^18.2.0",
@@ -41,6 +42,7 @@
     "shortid": "^2.2.16",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7",
+    "xlsx": "^0.18.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {

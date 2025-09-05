@@ -75,6 +75,15 @@ interface SubscriberData {
     ivr: number;
     whatsapp: number;
   };
+  createManifesto?: boolean;
+  manifestoTitle?: string;
+  manifestoDescription?: string;
+  pollingDate?: string;
+  pollingTime?: string;
+  boothNumber?: string;
+  wardNumber?: string;
+  constituency?: string;
+  party?: string;
 }
 
 const dataFilePath = path.join(process.cwd(), 'data', 'subscribers.json');
@@ -160,6 +169,62 @@ export async function POST(request: NextRequest) {
     // Write back to file
     await writeSubscribers(subscribers);
     console.log('New subscriber created:', newSubscriber);
+
+    // Create manifesto if requested
+    if (data.createManifesto && data.manifestoTitle && data.manifestoDescription) {
+      try {
+        const manifestoData = {
+          subscriberId: subscriberId,
+          manifesto: {
+            title: data.manifestoTitle,
+            description: data.manifestoDescription,
+            keyPoints: [],
+            vision: '',
+            mission: ''
+          },
+          election: {
+            pollingDate: data.pollingDate || '',
+            pollingTime: data.pollingTime || '',
+            boothNumber: data.boothNumber || '',
+            wardNumber: data.wardNumber || '',
+            constituency: data.constituency || data.village,
+            state: data.state
+          },
+          social: {
+            facebook: '',
+            twitter: '',
+            instagram: '',
+            youtube: '',
+            website: ''
+          },
+          media: {
+            videos: [],
+            audios: [],
+            images: [],
+            documents: []
+          }
+        };
+
+        // Create manifesto via API
+        const manifestoResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/manifesto/create`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(manifestoData),
+        });
+
+        if (manifestoResponse.ok) {
+          const manifestoResult = await manifestoResponse.json();
+          console.log('Manifesto created:', manifestoResult);
+        } else {
+          console.error('Failed to create manifesto:', await manifestoResponse.text());
+        }
+      } catch (error) {
+        console.error('Error creating manifesto:', error);
+        // Don't fail the subscriber creation if manifesto creation fails
+      }
+    }
 
     return NextResponse.json({
       success: true,

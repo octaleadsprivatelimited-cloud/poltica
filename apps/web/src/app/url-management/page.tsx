@@ -11,12 +11,11 @@ import {
   Trash2, 
   Eye, 
   BarChart3,
+  Calendar,
   Users,
   CheckCircle,
   AlertCircle,
-  ExternalLink,
-  Search,
-  Filter
+  ExternalLink
 } from 'lucide-react';
 
 interface UrlData {
@@ -26,7 +25,6 @@ interface UrlData {
   title: string;
   description?: string;
   subscriberId: string;
-  subscriberName?: string;
   clicks: number;
   createdAt: string;
   updatedAt: string;
@@ -34,22 +32,13 @@ interface UrlData {
   tags?: string[];
 }
 
-interface SubscriberData {
-  id: string;
-  name: string;
-  phone: string;
-}
-
-export default function AdminUrlsPage() {
+export default function UrlManagementPage() {
   const [urls, setUrls] = useState<UrlData[]>([]);
-  const [subscribers, setSubscribers] = useState<SubscriberData[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreateForm, setShowCreateForm] = useState(false);
   const [editingUrl, setEditingUrl] = useState<UrlData | null>(null);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedSubscriber, setSelectedSubscriber] = useState('');
   const router = useRouter();
 
   // Form state
@@ -57,13 +46,11 @@ export default function AdminUrlsPage() {
     originalUrl: '',
     title: '',
     description: '',
-    tags: '',
-    subscriberId: ''
+    tags: ''
   });
 
   useEffect(() => {
     loadUrls();
-    loadSubscribers();
   }, []);
 
   const loadUrls = async () => {
@@ -84,31 +71,13 @@ export default function AdminUrlsPage() {
     }
   };
 
-  const loadSubscribers = async () => {
-    try {
-      const response = await fetch('/api/admin/subscribers');
-      const data = await response.json();
-      
-      if (response.ok) {
-        setSubscribers(data.subscribers || []);
-      }
-    } catch (err) {
-      console.error('Failed to load subscribers:', err);
-    }
-  };
-
   const handleCreateUrl = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setSuccess('');
 
-    if (!formData.subscriberId) {
-      setError('Please select a subscriber');
-      return;
-    }
-
     try {
-      const response = await fetch('/api/admin/urls/create', {
+      const response = await fetch('/api/urls/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -120,7 +89,7 @@ export default function AdminUrlsPage() {
 
       if (response.ok) {
         setSuccess('URL created successfully!');
-        setFormData({ originalUrl: '', title: '', description: '', tags: '', subscriberId: '' });
+        setFormData({ originalUrl: '', title: '', description: '', tags: '' });
         setShowCreateForm(false);
         loadUrls();
       } else {
@@ -151,7 +120,7 @@ export default function AdminUrlsPage() {
 
       if (response.ok) {
         setSuccess('URL updated successfully!');
-        setFormData({ originalUrl: '', title: '', description: '', tags: '', subscriberId: '' });
+        setFormData({ originalUrl: '', title: '', description: '', tags: '' });
         setEditingUrl(null);
         loadUrls();
       } else {
@@ -194,8 +163,7 @@ export default function AdminUrlsPage() {
       originalUrl: url.originalUrl,
       title: url.title,
       description: url.description || '',
-      tags: url.tags?.join(', ') || '',
-      subscriberId: url.subscriberId
+      tags: url.tags?.join(', ') || ''
     });
     setShowCreateForm(true);
   };
@@ -203,25 +171,8 @@ export default function AdminUrlsPage() {
   const cancelEdit = () => {
     setEditingUrl(null);
     setShowCreateForm(false);
-    setFormData({ originalUrl: '', title: '', description: '', tags: '', subscriberId: '' });
+    setFormData({ originalUrl: '', title: '', description: '', tags: '' });
   };
-
-  const getSubscriberName = (subscriberId: string) => {
-    const subscriber = subscribers.find(s => s.id === subscriberId);
-    return subscriber ? subscriber.name : 'Unknown Subscriber';
-  };
-
-  const filteredUrls = urls.filter(url => {
-    const matchesSearch = searchTerm === '' || 
-      url.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      url.originalUrl.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      url.shortUrl.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      getSubscriberName(url.subscriberId).toLowerCase().includes(searchTerm.toLowerCase());
-    
-    const matchesSubscriber = selectedSubscriber === '' || url.subscriberId === selectedSubscriber;
-    
-    return matchesSearch && matchesSubscriber;
-  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-indigo-100">
@@ -234,17 +185,17 @@ export default function AdminUrlsPage() {
                 <Link className="h-6 w-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">Admin URL Management</h1>
-                <p className="text-gray-600">Manage URLs for all subscribers</p>
+                <h1 className="text-2xl font-bold text-gray-900">URL Management</h1>
+                <p className="text-gray-600">Create and manage your unique URLs</p>
               </div>
             </div>
             <div className="flex gap-2">
               <Button
-                onClick={() => router.push('/admin/overview')}
+                onClick={() => router.push('/dashboard')}
                 variant="outline"
                 className="flex items-center gap-2"
               >
-                Back to Admin
+                Back to Dashboard
               </Button>
               <Button
                 onClick={() => setShowCreateForm(true)}
@@ -274,50 +225,6 @@ export default function AdminUrlsPage() {
           </div>
         )}
 
-        {/* Filters */}
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Filter className="h-5 w-5" />
-              Filters & Search
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <Label htmlFor="search">Search URLs</Label>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
-                  <Input
-                    id="search"
-                    placeholder="Search by title, URL, or subscriber..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="subscriber">Filter by Subscriber</Label>
-                <select
-                  id="subscriber"
-                  value={selectedSubscriber}
-                  onChange={(e) => setSelectedSubscriber(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  title="Filter by subscriber"
-                >
-                  <option value="">All Subscribers</option>
-                  {subscribers.map((subscriber) => (
-                    <option key={subscriber.id} value={subscriber.id}>
-                      {subscriber.name} ({subscriber.phone})
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Create/Edit Form */}
         {showCreateForm && (
           <Card className="mb-8">
@@ -327,29 +234,22 @@ export default function AdminUrlsPage() {
                 {editingUrl ? 'Edit URL' : 'Create New URL'}
               </CardTitle>
               <CardDescription>
-                {editingUrl ? 'Update URL details' : 'Create a new URL for a subscriber'}
+                {editingUrl ? 'Update your URL details' : 'Create a new unique URL for your campaigns'}
               </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={editingUrl ? handleEditUrl : handleCreateUrl} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <Label htmlFor="subscriberId">Subscriber *</Label>
-                    <select
-                      id="subscriberId"
-                      value={formData.subscriberId}
-                      onChange={(e) => setFormData({ ...formData, subscriberId: e.target.value })}
+                    <Label htmlFor="originalUrl">Original URL *</Label>
+                    <Input
+                      id="originalUrl"
+                      type="url"
+                      placeholder="https://example.com"
+                      value={formData.originalUrl}
+                      onChange={(e) => setFormData({ ...formData, originalUrl: e.target.value })}
                       required
-                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                      title="Select subscriber for this URL"
-                    >
-                      <option value="">Select a subscriber</option>
-                      {subscribers.map((subscriber) => (
-                        <option key={subscriber.id} value={subscriber.id}>
-                          {subscriber.name} ({subscriber.phone})
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="title">Title *</Label>
@@ -361,18 +261,6 @@ export default function AdminUrlsPage() {
                       required
                     />
                   </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="originalUrl">Original URL *</Label>
-                  <Input
-                    id="originalUrl"
-                    type="url"
-                    placeholder="https://example.com"
-                    value={formData.originalUrl}
-                    onChange={(e) => setFormData({ ...formData, originalUrl: e.target.value })}
-                    required
-                  />
                 </div>
 
                 <div className="space-y-2">
@@ -428,28 +316,28 @@ export default function AdminUrlsPage() {
                 </div>
               </CardContent>
             </Card>
-          ) : filteredUrls.length === 0 ? (
+          ) : urls.length === 0 ? (
             <Card>
               <CardContent className="flex flex-col items-center justify-center py-12">
                 <Link className="h-16 w-16 text-gray-400 mb-4" />
                 <h3 className="text-lg font-semibold text-gray-600 mb-2">
-                  No URLs Found
+                  No URLs Created Yet
                 </h3>
                 <p className="text-gray-500 text-center mb-6">
-                  {searchTerm || selectedSubscriber ? 'No URLs match your filters' : 'No URLs have been created yet'}
+                  Create your first unique URL to start tracking your campaigns
                 </p>
                 <Button
                   onClick={() => setShowCreateForm(true)}
                   className="bg-gradient-to-r from-green-500 to-blue-600 hover:from-green-600 hover:to-blue-700"
                 >
                   <Plus className="h-4 w-4 mr-2" />
-                  Create First URL
+                  Create Your First URL
                 </Button>
               </CardContent>
             </Card>
           ) : (
             <div className="grid grid-cols-1 gap-6">
-              {filteredUrls.map((url) => (
+              {urls.map((url) => (
                 <Card key={url.id} className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex justify-between items-start">
@@ -459,10 +347,6 @@ export default function AdminUrlsPage() {
                           {url.title}
                         </CardTitle>
                         <CardDescription className="mt-1">
-                          <div className="flex items-center gap-2">
-                            <Users className="h-4 w-4" />
-                            {getSubscriberName(url.subscriberId)}
-                          </div>
                           {url.description || 'No description provided'}
                         </CardDescription>
                       </div>
